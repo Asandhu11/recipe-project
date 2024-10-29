@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Guide | Submit a Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="instructions.html">Instructions</a>
+            <a href="guides.html">Guides</a>
+            <a href="about.html">About Us</a>
+            <a href="submit-recipe.html">Submit a Recipe</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Submit Your Recipe</h2>
+
+        <form method="post" action="https://webdevbasics.net/scripts/demo.php" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" name="recipe_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contributor-name">Your Name:</label>
+                <input type="text" id="contributor-name" name="contributor_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cuisine">Cuisine Type:</label>
+                <input type="text" id="cuisine" name="cuisine" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Recipe</button>
+        </form>
+    </main>
+
+</body>
+</html>
