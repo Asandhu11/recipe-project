@@ -9,7 +9,7 @@
     </head>
 <body>
     <header>
-        <nav>
+        <nav><img src="images/logo.jpg" alt="Project Logo" style="height: 100px; margin-right: 10px; vertical-align: middle;">
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
             <a href="instructions.html">Instructions</a>
@@ -18,13 +18,25 @@
             <a href="submit-recipe.html">Submit a Recipe</a>
             <a href="products.html">Products</a>
         </nav>
+        <button id="scrollToTop" style="display: none; position: fixed; bottom: 20px; right: 20px;">Top</button>
+
     </header>
+    <div id="cartCount">Items in Cart: 0</div>
+<script>
+    let cartCount = 0;
+    document.querySelectorAll('.paypal-button').forEach(button => {
+        button.addEventListener('click', () => {
+            cartCount++;
+            document.getElementById('cartCount').textContent = `Items in Cart: ${cartCount}`;
+        });
+    });
+</script>
 
     <main>
         <h2>Products for Sale</h2>
 
         <!-- Product 1 -->
-        <div class="product">
+        <div class="product"><img src="images/cooking_set.jpg" alt="Cooking Utensil Set" style="width: 20%; border-radius: 30px; margin-bottom: 50px;">
             <h3>Cooking Utensil Set</h3>
             <p>Price: $29.99</p>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -38,7 +50,7 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="product">
+        <div class="product"><img src="images/book.jpg" alt="Recipe Book" style="width: 20%; border-radius: 20px; margin-bottom: 50px;">
             <h3>Recipe Book</h3>
             <p>Price: $19.99</p>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -52,7 +64,7 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="product">
+        <div class="product"><img src="images/knife.jpg" alt="Chef's Knife" style="width: 20%; border-radius: 30px; margin-bottom: 50px;">
             <h3>Chef's Knife</h3>
             <p>Price: $49.99</p>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -64,7 +76,20 @@
                 <input type="submit" value="Buy Now" class="paypal-button">
             </form>
         </div>
+        <div id="cartCount">Items in Cart: 0</div>
+
 
     </main>
+   
+<script>
+    const scrollToTop = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+        scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+
+    scrollToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>

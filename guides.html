@@ -10,20 +10,34 @@
 <body>
 
     <header>
-        <nav>
+        <nav><img src="images/logo.jpg" alt="Project Logo" style="height: 100px; margin-right: 10px; vertical-align: middle;">
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
             <a href="instructions.html">Instructions</a>
             <a href="guides.html">Guides</a>
             <a href="about.html">About Us</a>
             <a href="submit-recipe.html">Submit a Recipe</a>
+            <a href="products.html">Products</a>
         </nav>
+        <button id="scrollToTop" style="display: none; position: fixed; bottom: 20px; right: 20px;">Top</button>
+
     </header>
 
-    <main>
+    <main><img src="images/book.jpg" alt="My Recipe Book" style="width: 50%; border-radius: 5px; margin-bottom: 2px;">
         <h2>Cooking Guides and Tips</h2>
         <p>Explore our expert guides to enhance your cooking skills.</p>
     </main>
+   
+<script>
+    const scrollToTop = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+        scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+
+    scrollToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 </body>
 </html>

@@ -11,37 +11,82 @@
 <body>
 
     <header>
-        <nav>
+        <nav><img src="images/logo.jpg" alt="Project Logo" style="height: 100px; margin-right: 10px; vertical-align: middle;">
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
             <a href="instructions.html">Instructions</a>
             <a href="guides.html">Guides</a>
             <a href="about.html">About Us</a>
             <a href="submit-recipe.html">Submit a Recipe</a>
+            <a href="products.html">Products</a>
         </nav>
+        <button id="scrollToTop" style="display: none; position: fixed; bottom: 20px; right: 20px;">Top</button>
+
     </header>
 
-    <main>
+    <main><img src="images/menu_img.jpeg" alt="Menu Visual" style="width: 50%; border-radius: 5px; margin-bottom: 2px;">
         <h2>Our Recipe Menu</h2>
         
         <!-- Recipe Image Gallery -->
+        
         <div class="recipe-gallery">
             <div class="gallery-item">
-                <img src="images/recipe1.jpg" alt="Pasta Primavera">
+                <img src="images/recipe1.jpg" alt="Delicious Pasta Primavera">
             </div>
             <div class="gallery-item">
                 <img src="images/recipe2.jpg" alt="Spicy Tacos">
             </div>
             <div class="gallery-item">
-                <img src="images/recipe3.jpg" alt="Chocolate Cake">
+                <img src="images/recipe3.jpeg" alt="Decadent Chocolate Cake">
             </div>
             <div class="gallery-item">
                 <img src="images/recipe4.jpg" alt="Homemade Pizza">
             </div>
-            <!-- Add more images as needed, following the same format -->
-        </div>
+        
+            
+       
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let currentIndex = 0;
+        const images = $(".gallery-item");
+        images.hide().eq(0).show();
 
+        setInterval(function() {
+            images.eq(currentIndex).fadeOut();
+            currentIndex = (currentIndex + 1) % images.length;
+            images.eq(currentIndex).fadeIn();
+        }, 3000);
+    });
+</script>
+<button id="scrollTopBtn" style="display:none; position:fixed; bottom:20px; right:20px;">Top</button>
+<script>
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    };
+
+    scrollTopBtn.onclick = function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+</script>
+
+<script>
+    const scrollToTop = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+        scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+
+    scrollToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>

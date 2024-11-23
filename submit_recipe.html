@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Guide | Submit a Recipe</title>
+    <meta name="description" content="Submit your favorite recipes to our community, and share your culinary creations with fellow food enthusiasts worldwide.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.jpg" alt="Project Logo" style="height: 50px; margin-right: 10px; vertical-align: middle;">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="instructions.html">Instructions</a>
+            <a href="guides.html">Guides</a>
+            <a href="about.html">About Us</a>
+            <a href="submit_recipe.html">Submit a Recipe</a>
+        </nav>
+        <button id="scrollToTop" style="display: none; position: fixed; bottom: 20px; right: 20px;">Top</button>
+    </header>
+
+    <main>
+        <h2>Submit Your Recipe</h2>
+        <form id="recipeForm" method="post" action="https://webdevbasics.net/scripts/demo.php" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" name="recipe_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contributor-name">Your Name:</label>
+                <input type="text" id="contributor-name" name="contributor_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+                <small id="emailError" style="color: red; display: none;">Please enter a valid email address.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="cuisine">Cuisine Type:</label>
+                <input type="text" id="cuisine" name="cuisine" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Recipe</button>
+        </form>
+    </main>
+
+    <script>
+        // Real-time validation for email field
+        document.getElementById("email").addEventListener("input", function () {
+            const emailField = this;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailError = document.getElementById("emailError");
+
+            if (!emailRegex.test(emailField.value)) {
+                emailField.style.borderColor = "red";
+                emailError.style.display = "block";
+            } else {
+                emailField.style.borderColor = "green";
+                emailError.style.display = "none";
+            }
+        });
+
+        // Prevent form submission if any validation fails
+        document.getElementById("recipeForm").addEventListener("submit", function (event) {
+            const emailField = document.getElementById("email");
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(emailField.value)) {
+                alert("Please fix the errors in the form before submitting.");
+                event.preventDefault();
+            }
+        });
+
+        // Scroll-to-top button functionality
+        const scrollToTop = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+        });
+
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
