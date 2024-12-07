@@ -116,3 +116,36 @@ body.dark-mode {
 nav a {
     color: inherit; /* Adjust for dark mode */
 }
+
+/* SubmitRecipePage Styles */
+.submitRecipe-form {
+    padding: 8px;
+}
+.form-group{
+    padding: 4px;
+}
+.form-button{
+    padding: 4px;
+}
+.submitRecipe-form label{
+    color: black;
+    font-size: large;
+}
+.submitRecipe-form input{
+    padding: 8px;
+    overflow: none;
+    font-size: small;
+}
+.submitRecipe-form button{
+    background-color: burlywood;
+    padding: 4px;
+}
+.contact-table tbody{
+    background-color: aqua;
+    font-size: medium;
+}
+.contact-table td{
+    padding-right: 5px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
