@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipe Guide | Submit a Recipe</title>
-        <meta name="description" content="Submit your favorite recipes to our community, and share your culinary creations with fellow food enthusiasts worldwide.">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Guide | Submit a Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
     <header>
@@ -16,6 +15,7 @@
             <a href="instructions.html">Instructions</a>
             <a href="guides.html">Guides</a>
             <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="submit-recipe.html">Submit a Recipe</a>
         </nav>
     </header>
@@ -23,7 +23,7 @@
     <main>
         <h2>Submit Your Recipe</h2>
 
-        <form method="post" action="https://webdevbasics.net/scripts/demo.php" enctype="multipart/form-data">
+        <form class="submitRecipe-form" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="recipe-name">Recipe Name:</label>
                 <input type="text" id="recipe-name" name="recipe_name" required>
@@ -48,8 +48,9 @@
                 <label for="ingredients">Ingredients:</label>
                 <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
             </div>
-
+            
             <button type="submit">Submit Recipe</button>
+    
         </form>
     </main>
 
